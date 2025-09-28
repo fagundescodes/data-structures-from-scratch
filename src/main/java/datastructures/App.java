@@ -11,6 +11,11 @@ public class App {
     list.push(2);
     list.push(3);
     list.push(4);
-    System.out.println(list.get(2));
+    list.push(5);
+    Object removed = list.pop();
+    Object deleted = list.delete(2);
+    System.out.println(list.get(3));
+    System.out.println("Removed " + removed);
+    System.out.println("Deleted " + deleted);
   }
 }
