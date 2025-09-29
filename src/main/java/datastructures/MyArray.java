@@ -3,10 +3,12 @@ package datastructures;
 public class MyArray<T> {
   private Object[] data;
   private int size;
-  private static final int CAPACITY = 10;
 
-  public MyArray() {
-    this.data = new Object[CAPACITY];
+  public MyArray(int capacity) {
+    if (capacity <= 0) {
+      throw new IllegalArgumentException("Capacity not valid");
+    }
+    this.data = new Object[capacity];
     this.size = 0;
   }
 
@@ -19,6 +21,9 @@ public class MyArray<T> {
   }
 
   public void push(T item) {
+    if (size == data.length) {
+      throw new RuntimeException("Array is full");
+    }
     data[size] = item;
     size++;
   }
